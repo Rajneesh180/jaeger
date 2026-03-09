@@ -111,6 +111,7 @@ func (s *server) Start(ctx context.Context, host component.Host) error {
 		handler,
 	)
 	if err != nil {
+		_ = s.listener.Close()
 		return fmt.Errorf("failed to create HTTP server: %w", err)
 	}
 
